@@ -42,3 +42,25 @@ where Artist = 'Tommy Richman';
 # Int
 Alter table class.spotify_songs_data
 Add Song_id int;
+
+# Like
+select Track from class.spotify_songs_data
+Where Track LIKE '%iT';
+
+select * from class.spotify_songs_data
+Where Track_Score > 500 or Track Like 'not%'; 
+
+# Upper vs lower
+select lower(track) AS Track from class.spotify_songs_data;
+select Upper(track) AS Track from class.spotify_songs_data;
+
+# MAx , Min, AVG, Count
+select Min(Track_Score) AS min_score from class.spotify_songs_data;
+select AVG(Track_Score) AS avg_score from class.spotify_songs_data;
+select distinct count(Track_score) from class.spotify_songs_data;
+
+Select sum(Track_score) from class.spotify_songs_data;
+
+# group by - Multiple row function
+select Track, Count(Artist) from class.spotify_songs_data
+group by Track;
